@@ -16,7 +16,7 @@
       </v-tab-item>
 
       <v-tab-item>
-        <h4>Decryption</h4>
+        <caesar-decrypt></caesar-decrypt>
       </v-tab-item>
     </v-tabs-items>
   </div>
@@ -24,6 +24,7 @@
 
 <script>
 import CaesarEncrypt from "./CaesarEncrypt.vue";
+import CaesarDecrypt from "./CaesarDecrypt.vue";
 export default {
   name: "Caesar",
   data: () => ({
@@ -31,7 +32,8 @@ export default {
   }),
   methods: {},
   components: {
-    CaesarEncrypt
+    CaesarEncrypt,
+    CaesarDecrypt
   }
 };
 </script>
