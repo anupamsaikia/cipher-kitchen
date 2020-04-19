@@ -37,16 +37,25 @@
         ></v-text-field>
       </v-col>
     </v-row>
+
+    <frequency-analyser
+      :text="cipherText"
+      :shift="shift"
+      v-on:shift-increase="shift++"
+      v-on:shift-decrease="shift--"
+    ></frequency-analyser>
   </div>
 </template>
 
 <script>
 import { decrypt } from "../ciphers/caesar";
+import FrequencyAnalyser from "./FrequencyAnalyser";
 export default {
   data: () => ({
     cipherText: "",
     shift: 0
   }),
+
   computed: {
     plainText: function() {
       let shift = parseInt(this.shift, 10);
@@ -67,6 +76,10 @@ export default {
     decrement() {
       this.shift = parseInt(this.shift, 10) - 1;
     }
+  },
+
+  components: {
+    FrequencyAnalyser
   }
 };
 </script>
