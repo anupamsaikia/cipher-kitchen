@@ -79,13 +79,13 @@ export default {
 
   methods: {
     increaseShift() {
-      this.$emit("shift-increase");
-    },
-    decreaseShift() {
       this.$emit("shift-decrease");
     },
+    decreaseShift() {
+      this.$emit("shift-increase");
+    },
     rotateArray(arr, count) {
-      count = count * -1;
+      //count = count * -1;
       let newArr = Array.from(arr);
       count -= newArr.length * Math.floor(count / newArr.length);
       newArr.push.apply(newArr, newArr.splice(0, count));
