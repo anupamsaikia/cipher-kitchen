@@ -24,19 +24,41 @@
 
     <v-row>
       <v-col cols="12" sm="6">
-        <v-row justify="center">
-          <v-col cols="12" class="pb-0 pt-0">
+        <v-row justify="center" align="center">
+          <v-col cols="1" style="justify-content: end;display: flex;">
+            <v-btn
+              fab
+              light
+              small
+              outlined
+              color="orange darken-3"
+              @click="decrement"
+            >
+              <v-icon dark>mdi-minus</v-icon>
+            </v-btn>
+          </v-col>
+          <v-col cols="8" class="pb-0 pt-0">
             <v-text-field
+              dense
+              hide-details
               v-model="shift"
               type="number"
               label="Enter shift value here"
               outlined
               prepend-inner-icon="mdi-key-variant"
-              append-outer-icon="mdi-plus"
-              @click:append-outer="increment"
-              prepend-icon="mdi-minus"
-              @click:prepend="decrement"
             ></v-text-field>
+          </v-col>
+          <v-col cols="1">
+            <v-btn
+              fab
+              small
+              light
+              outlined
+              color="orange darken-3"
+              @click="increment"
+            >
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
           </v-col>
         </v-row>
 
