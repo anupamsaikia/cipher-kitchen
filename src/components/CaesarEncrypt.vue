@@ -18,6 +18,7 @@
           label="Ciphetext"
           :value="cipherText"
           hint="This field is read only"
+          ref="cipherElement"
         ></v-textarea>
       </v-col>
     </v-row>
@@ -64,13 +65,13 @@
 
         <v-row justify="center">
           <v-col cols="6" sm="12" md="6">
-            <v-btn block color="grey darken-1" dark>
-              <v-icon left dark>mdi-content-copy</v-icon>
-              Copy plaintext
+            <v-btn block color="grey darken-1" dark @click="clearAll">
+              <v-icon left dark>mdi-delete</v-icon>
+              Clear all
             </v-btn>
           </v-col>
           <v-col cols="6" sm="12" md="6">
-            <v-btn block color="grey darken-1" dark>
+            <v-btn block color="grey darken-1" dark @click="copyCipherText">
               <v-icon left dark>mdi-content-copy</v-icon>
               Copy ciphertext
             </v-btn>
@@ -110,6 +111,16 @@ export default {
     },
     decrement() {
       this.shift = parseInt(this.shift, 10) - 1;
+    },
+    clearAll() {
+      this.plainText = "";
+      this.shift = 0;
+    },
+    copyCipherText() {
+      let textToCopy = this.$refs.cipherElement.$el.querySelector("textarea");
+      textToCopy.select();
+      document.execCommand("copy");
+      textToCopy.blur();
     }
   }
 };

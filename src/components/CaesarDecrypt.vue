@@ -22,41 +22,55 @@
       </v-col>
     </v-row>
 
-    <v-row justify="center" align="center">
-      <v-col cols="1" style="justify-content: end;display: flex;">
-        <v-btn
-          fab
-          light
-          small
-          outlined
-          color="orange darken-3"
-          @click="decrement"
-        >
-          <v-icon dark>mdi-minus</v-icon>
-        </v-btn>
+    <v-row justify="center" align="center" no-gutters>
+      <v-col cols="12" sm="6" md="6">
+        <v-row justify="center" align="center">
+          <v-col cols="1" style="justify-content: end;display: flex;">
+            <v-btn
+              fab
+              light
+              small
+              outlined
+              color="orange darken-3"
+              @click="decrement"
+            >
+              <v-icon dark>mdi-minus</v-icon>
+            </v-btn>
+          </v-col>
+          <v-col cols="8" class="pb-0 pt-0">
+            <v-text-field
+              dense
+              hide-details
+              v-model="shift"
+              type="number"
+              label="Enter shift value here"
+              outlined
+              prepend-inner-icon="mdi-key-variant"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="1">
+            <v-btn
+              fab
+              small
+              light
+              outlined
+              color="orange darken-3"
+              @click="increment"
+            >
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
       </v-col>
-      <v-col cols="8" sm="4" class="pb-0 pt-0">
-        <v-text-field
-          dense
-          hide-details
-          v-model="shift"
-          type="number"
-          label="Enter shift value here"
-          outlined
-          prepend-inner-icon="mdi-key-variant"
-        ></v-text-field>
-      </v-col>
-      <v-col cols="1">
-        <v-btn
-          fab
-          small
-          light
-          outlined
-          color="orange darken-3"
-          @click="increment"
-        >
-          <v-icon>mdi-plus</v-icon>
-        </v-btn>
+      <v-col cols="12" sm="6" md="6">
+        <v-row justify="center">
+          <v-col cols="6">
+            <v-btn block color="grey darken-1" dark @click="clearAll">
+              <v-icon left dark>mdi-delete</v-icon>
+              Clear all
+            </v-btn>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
 
@@ -97,6 +111,10 @@ export default {
     },
     decrement() {
       this.shift = parseInt(this.shift, 10) - 1;
+    },
+    clearAll() {
+      this.cipherText = "";
+      this.shift = 0;
     }
   },
 
