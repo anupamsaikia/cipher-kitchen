@@ -64,7 +64,7 @@ export function encrypt(message, keyPhrase) {
  * @param {string} keyPhrase Key phrase for Playfair cipher
  * @returns {Array} Array[5][5] representing letters in key table
  */
-export function generateKeyTable(keyPhrase) {
+function generateKeyTable(keyPhrase) {
   keyPhrase = sanitize(keyPhrase);
   let uniqueLetters = new Set(keyPhrase);
   for (let i = 0; i < 26; i++) uniqueLetters.add(String.fromCharCode(65 + i));
@@ -98,4 +98,17 @@ function sanitize(input) {
     .toUpperCase()
     .replace(/[^A-Z]/g, "")
     .replace("J", "I");
+}
+
+/**
+ * Returns the full key string from a given key phrase of Playfair cipher
+ * @param {string} keyPhrase Key phrase for Playfair cipher
+ */
+export function getKeyTableString(keyPhrase) {
+  keyPhrase = sanitize(keyPhrase);
+  let uniqueLetters = new Set(keyPhrase);
+  for (let i = 0; i < 26; i++) uniqueLetters.add(String.fromCharCode(65 + i));
+
+  uniqueLetters.delete("J");
+  return Array.from(uniqueLetters).join("");
 }
