@@ -74,12 +74,23 @@
       </v-col>
     </v-row>
 
-    <frequency-analyser
-      :text="cipherText"
-      :shift="shift"
-      v-on:shift-increase="shift++"
-      v-on:shift-decrease="shift--"
-    ></frequency-analyser>
+    <div>
+      <p class="subtitle-2 text-left text-sm-center mb-0">
+        Frequency analysis of ciphertext and english language :
+      </p>
+      <p
+        class="caption text-left text-sm-center grey--text text--darken-3 mb-0"
+      >
+        Try to match both the graphs to decipher (works better with long
+        ciphertext)
+      </p>
+      <frequency-analyser
+        :text="cipherText"
+        :shift="shift"
+        v-on:shift-increase="shift++"
+        v-on:shift-decrease="shift--"
+      ></frequency-analyser>
+    </div>
   </div>
 </template>
 

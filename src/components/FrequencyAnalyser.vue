@@ -64,7 +64,6 @@ export default {
       for (let i = 0; i < 26; i++) {
         values.push(frequencies[String.fromCharCode(65 + i)] || 0);
       }
-      console.log("frequencies:" + values);
       return values;
     },
     displayedFrequencies: function() {
@@ -72,7 +71,6 @@ export default {
       return this.rotateArray(f, this.shift);
     },
     displayedLabels: function() {
-      console.log(this.labels);
       return this.rotateArray(this.labels, this.shift);
     }
   },
