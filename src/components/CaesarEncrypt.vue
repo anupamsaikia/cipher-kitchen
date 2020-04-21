@@ -80,7 +80,8 @@
       </v-col>
 
       <v-col cols="12" sm="6">
-        <h3>Character mapping</h3>
+        <p class="subtitle-2">Character mapping :</p>
+        <character-map :shift="shift"></character-map>
       </v-col>
     </v-row>
   </div>
@@ -88,6 +89,7 @@
 
 <script>
 import { encrypt } from "../ciphers/caesar";
+import CharacterMap from "./CharacterMap.vue";
 export default {
   data: () => ({
     plainText: "",
@@ -122,6 +124,10 @@ export default {
       document.execCommand("copy");
       textToCopy.blur();
     }
+  },
+
+  components: {
+    CharacterMap
   }
 };
 </script>
