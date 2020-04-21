@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row justify="center">
-      <v-col xs="12" sm="8" md="6">
+      <v-col xs="12" sm="8" md="6" class="pb-0">
         <v-select
           :items="algorithms"
           v-model="selectedAlgo"
@@ -9,7 +9,7 @@
           outlined
           filled
           dense
-          color="teal"
+          color="orange"
         ></v-select>
       </v-col>
     </v-row>
@@ -20,6 +20,7 @@
 
 <script>
 import Caesar from "../components/Caesar.vue";
+import Playfair from "../components/Playfair.vue";
 export default {
   name: "Home",
   data: () => ({
@@ -40,7 +41,8 @@ export default {
     ]
   }),
   components: {
-    Caesar
+    Caesar,
+    Playfair
   }
 };
 </script>
