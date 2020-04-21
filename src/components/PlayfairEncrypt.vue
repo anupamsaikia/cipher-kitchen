@@ -69,7 +69,23 @@
       </v-col>
 
       <v-col cols="12" sm="6">
-        <p class="subtitle-2">Key table : Display keytable here later</p>
+        <p class="subtitle-2 mb-0">Key table :</p>
+
+        <v-row justify="center">
+          <v-col cols="10" lg="6" xl="5">
+            <div class="t-container">
+              <div v-for="(n, i) in 5" :key="i" class="t-row">
+                <div
+                  v-for="(n, j) in 5"
+                  :key="i + j"
+                  class="t-col green--text text--darken-4"
+                >
+                  {{ keyTable.charAt(5 * i + j) }}
+                </div>
+              </div>
+            </div>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </div>
@@ -109,4 +125,22 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.t-container {
+  border: solid 1px rgba(150, 150, 150, 0.7);
+}
+.t-row {
+  display: flex;
+}
+.t-col {
+  flex: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  border: solid 1px rgba(150, 150, 150);
+  background-color: #e8f5e9;
+  height: 40px;
+}
+</style>
