@@ -56,7 +56,7 @@ export function encrypt(message, keyPhrase) {
     }
   }
 
-  return cipherText.toString();
+  return cipherText.join("");
 }
 
 /**
