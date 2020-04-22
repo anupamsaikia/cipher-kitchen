@@ -4,9 +4,9 @@
       <v-col sm="6" class="pb-0">
         <v-textarea
           outlined
-          name="plaintext"
-          label="Enter plaintext here"
-          v-model="plainText"
+          name="ciphertext"
+          label="Enter ciphertext here"
+          v-model="cipherText"
         ></v-textarea>
       </v-col>
       <v-col sm="6" class="pb-0">
@@ -14,11 +14,10 @@
           outlined
           filled
           readonly
-          name="ciphertext"
-          label="Ciphetext"
-          :value="cipherText"
+          name="plaintext"
+          label="Plaintext"
+          :value="plainText"
           hint="This field is read only"
-          ref="cipherElement"
         ></v-textarea>
       </v-col>
     </v-row>
@@ -59,12 +58,6 @@
               Reset
             </v-btn>
           </v-col>
-          <v-col cols="6" sm="12" md="6">
-            <v-btn block color="grey darken-1" dark @click="copyCipherText">
-              <v-icon left dark>mdi-content-copy</v-icon>
-              Copy ciphertext
-            </v-btn>
-          </v-col>
         </v-row>
       </v-col>
 
@@ -92,16 +85,16 @@
 </template>
 
 <script>
-import { encrypt, getKeyTableString } from "../ciphers/playfair.js";
+import { decrypt, getKeyTableString } from "../ciphers/playfair.js";
 export default {
   data: () => ({
-    plainText: "",
+    cipherText: "",
     keyPhrase: ""
   }),
 
   computed: {
-    cipherText: function() {
-      return encrypt(this.plainText, this.keyPhrase).toString();
+    plainText: function() {
+      return decrypt(this.cipherText, this.keyPhrase).toString();
     },
     keyTable: function() {
       return getKeyTableString(this.keyPhrase);
@@ -110,15 +103,8 @@ export default {
 
   methods: {
     reset() {
-      this.plainText = "";
+      this.cipherText = "";
       this.keyPhrase = "";
-    },
-
-    copyCipherText() {
-      let textToCopy = this.$refs.cipherElement.$el.querySelector("textarea");
-      textToCopy.select();
-      document.execCommand("copy");
-      textToCopy.blur();
     }
   }
 };
