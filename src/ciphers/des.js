@@ -10,3 +10,13 @@ export function encrypt(message, password) {
 
   return output;
 }
+
+export function decrypt(cipherText, password) {
+  let output = CryptoJS.DES.decrypt(cipherText, password).toString(
+    CryptoJS.enc.Utf8
+  );
+
+  if (output == "")
+    return "The plaintext was empty or incorrect ciphertext/password";
+  else return output;
+}
