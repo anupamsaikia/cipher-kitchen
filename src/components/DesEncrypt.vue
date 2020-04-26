@@ -16,7 +16,7 @@
           outlined
           dense
           hide-details
-          name="ciphertext"
+          name="password"
           label="Secret Password"
           v-model="password"
         ></v-text-field>
@@ -33,10 +33,8 @@
       </v-col>
     </v-row>
 
-    <v-divider class="mt-5 mb-5"></v-divider>
-
     <v-row justify="center" v-if="output">
-      <v-col cols="12" sm="8" class="pt-0">
+      <v-col cols="12" sm="8" class="mt-5 pt-5">
         <v-text-field
           dense
           outlined
@@ -81,17 +79,6 @@
         ></v-text-field>
       </v-col>
     </v-row>
-
-    <div>
-      <p class="subtitle-2 mb-0">Note:</p>
-      <p class="caption mb-0">
-        Here the DES algorithm uses the CBC (Cipher block chaining) mode, PKCS#7
-        padding scheme and md5 digest.
-      </p>
-      <p class="caption mb-0">
-        This implementation is compatible with OpenSSL.
-      </p>
-    </div>
   </div>
 </template>
 
