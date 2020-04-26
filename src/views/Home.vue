@@ -21,6 +21,8 @@
 <script>
 import Caesar from "../components/Caesar.vue";
 import Playfair from "../components/Playfair.vue";
+import Des from "../components/Des.vue";
+
 export default {
   name: "Home",
   data: () => ({
@@ -42,7 +44,8 @@ export default {
   }),
   components: {
     Caesar,
-    Playfair
+    Playfair,
+    Des
   }
 };
 </script>
