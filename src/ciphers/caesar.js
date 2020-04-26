@@ -1,4 +1,5 @@
 /**
+ * Encrypt a given message with Caesar cipher
  * @param {string} message The plaintext message
  * @param {number} shift Shift value
  */
@@ -18,6 +19,7 @@ export function encrypt(message, shift) {
 }
 
 /**
+ * Decrypt a given encrypted message with Caesar cipher to plaintext
  * @param {string} message The ciphertext message
  * @param {number} shift Shift value
  */
@@ -40,7 +42,8 @@ export function decrypt(message, shift) {
 }
 
 /**
- *
+ * Performs Caesar shifting on a given string.
+ * The letters retain their original casing. Other non-alphabet characters are not changed
  * @param {string} message
  * @param {number} shift
  */
