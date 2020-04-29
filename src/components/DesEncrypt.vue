@@ -34,7 +34,14 @@
     </v-row>
 
     <v-row justify="center" v-if="output">
-      <v-col cols="12" sm="8" class="mt-5 pt-5">
+      <v-col cols="6" class="mt-5 pt-5">
+        <v-btn block color="grey darken-1" dark @click="copyCipherText">
+          <v-icon left dark>mdi-content-copy</v-icon>
+          Copy ciphertext
+        </v-btn>
+      </v-col>
+
+      <v-col cols="12" sm="8">
         <v-text-field
           dense
           outlined
@@ -43,6 +50,7 @@
           label="Ciphertext"
           hint="Base64 encoded ciphertext"
           :value="output.cipherText"
+          ref="cipherElement"
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="8" class="pt-0">
@@ -99,6 +107,12 @@ export default {
       this.plainText = "";
       this.password = "";
       this.output = null;
+    },
+    copyCipherText() {
+      let textToCopy = this.$refs.cipherElement.$el.querySelector("input");
+      textToCopy.select();
+      document.execCommand("copy");
+      textToCopy.blur();
     }
   }
 };
