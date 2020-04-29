@@ -11,13 +11,12 @@ export function encrypt(message, keyPhrase) {
 
   let cipherText = [];
 
-  const msgLength = message.length;
-  for (let i = 0; i < msgLength; i += 2) {
+  for (let i = 0; i < message.length; i += 2) {
     // if two consecutive letters are same, or total length is odd,
     // then use 'X' or 'Z' as filler character
-    if (message[i] == message[i + 1] || i == msgLength - 1) {
-      if (message[i] == "X") message[i + 1] = "Z";
-      else message[i + 1] = "X";
+    if (message[i] == message[i + 1] || i == message.length - 1) {
+      if (message[i] == "X") message.splice(i + 1, 0, "Z");
+      else message.splice(i + 1, 0, "X");
     }
 
     // if the letters are in same row, then use the letters to their immediate right respectively
