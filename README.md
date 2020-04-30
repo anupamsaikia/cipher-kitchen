@@ -1,5 +1,10 @@
 # cipher-kitchen
-A tool to experiment with different cipher algorithms
+A tool to experiment with different cipher algorithms.
+
+Visit the [website](https://cipher-kitchen.web.app/) to experiment
+
+## Project requirements
+* node.js
 
 ## Project setup
 ```
